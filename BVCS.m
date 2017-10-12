@@ -92,7 +92,7 @@ for t=1:100000
 					C_Contention_Window=C_Contention_Window-1;
 					if A_Contention_Window==0 && C_Contention_Window==0
 						A_collision=A_collision+1;
-						C_collision=C_collision+1;
+						%C_collision=C_collision+1;
 						Contention_Window=Contention_Window*2;
 						if Contention_Window>1024
 							Contention_Window=1024;
@@ -269,8 +269,10 @@ C_throughput=C_success*1500*8/((C_end(end)-C_first(1))*0.00002);
 C_delay=(sum(C_end(1:C_success))-sum(frameC(1:C_success)))*0.00002/num_of_packets;
 
 %print out data at bottom
-Title="Figure A - VCS"
+Title="Figure B - VCS"
 A_Throughput=A_throughput
 A_Delay=A_delay
+A_Collisions = A_collision
 C_Throughput=C_throughput
 C_Delay=C_delay
+C_Collisions = C_collision
