@@ -114,6 +114,7 @@ for t=1:50000 % 1 sec =  50,000 slots (1 / (2 * 10^-5) = 50,000 slots
                             % k collisions, the backoff  value is selected from [0;2kCW01]:
                             % The CW value cannot exceed threshold CWmax
                             A_collision=A_collision+1; %collision occur detected at end of contention slot
+                            C_collision=C_collision+1;
                             Contention_Window=Contention_Window*2; 
                             if Contention_Window>1024 %CWMax - end of contention window
                                 Contention_Window=1024;
@@ -190,6 +191,9 @@ C_delay=(sum(C_end(1:C_success))-sum(frame_C(1:C_success)))*0.00002/nPackets;
 Title="Figure B - CSMA:CA"
 A_Throughput=A_throughput
 A_Delay=A_delay
+A_Collisions = A_collision
 C_Throughput=C_throughput
 C_Delay=C_delay
+C_Collisions = C_collision
+
 
